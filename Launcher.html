@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Launcher</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Launcher">
+    </head>
+    <body>
+        <a id="support" href="https://support.google.com/chrome/answer/95472?hl=en&co=GENIE.Platform%3DDesktop#zippy=" target="_blank"></a>
+        <script>
+            console.log("Starting Launcher...");
+            if (window.open("index.html","googleWindow", "width=1920, height=1080")){
+               window.close();
+            }
+            else{
+                document.getElementById("support").innerHTML="You must enable the pop-up window. And refresh page.";
+                console.log("pop-up window disabled!");
+            }
+        </script>
+    </body>
+</html>

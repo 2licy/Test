@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Immortal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Game">
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body onload="whenLoaded()">
+        <div class="loading"></div>
+        <div id="version">1.0.0</div>
+        <span id="fps">--</span>
+        <div id="player"></div>
+        <div id="enemy"></div>
+        <div id="map"></div>
+        <div id="minimap"></div>
+        <div id="shopBtn" onclick="showItemShop()"></div>
+        <div id="settingsBtn" onclick="showSettings()"></div>
+        <div id="message">Press any key or click to restart.</div>
+
+        <div id="singUp" onclick="singUp()">Sign Up</div>
+        <div id="rank" onclick="showStats()"></div>
+        <span id="profile" onclick="showStats()"></span>
+        <div id="avatar" onclick="showStats()"></div>
+
+        <div id="stats">
+            <br><span id="winCounter"></span>
+            <br><span id="rankText"></span>
+            <br><span id="logOut" onclick="delData()">Log Out</span>
+        </div>
+
+        <div id="arrowID">
+            <div id="arrowUp" class="arrows"></div>
+            <div id="arrowDown" class="arrows"></div>
+            <div id="arrowLeft" class="arrows"></div>
+            <div id="arrowRight" class="arrows"></div>
+        </div>
+
+        <div id="minion1" class="minion"></div>
+        <div id="minion2" class="minion"></div>
+        <div id="minion3" class="minion"></div>
+        <div id="minion4" class="minion"></div>
+        <div id="minion5" class="minion"></div>
+        <div id="minion6" class="minion"></div>
+        <div id="minion7" class="minion"></div>
+        <div id="minion8" class="minion"></div>
+        <div id="minion9" class="minion"></div>
+
+        <div id="turret1" class="turret"></div>
+        <div id="turret2" class="turret"></div>
+        <div id="turret3" class="turret"></div>
+        <div id="turret4" class="turret"></div>
+        <div id="turret5" class="turret"></div>
+        <div id="turret6" class="turret"></div>
+        <div id="turret7" class="turret"></div>
+        <div id="turret8" class="turret"></div>
+        <div id="turret9" class="turret"></div>
+        <div id="turret10" class="turret"></div>
+        <div id="turret11" class="turret"></div>
+
+        <div id="turretZone1" class="turretZone"></div>
+        <div id="turretZone2" class="turretZone"></div>
+        <div id="turretZone3" class="turretZone"></div>
+        <div id="turretZone4" class="turretZone"></div>
+        <div id="turretZone5" class="turretZone"></div>
+        <div id="turretZone6" class="turretZone"></div>
+        <div id="turretZone7" class="turretZone"></div>
+        <div id="turretZone8" class="turretZone"></div>
+        <div id="turretZone9" class="turretZone"></div>
+        <div id="turretZone10" class="turretZone"></div>
+        <div id="turretZone11" class="turretZone"></div>
+
+        <div id="nexus1" class="turret"></div>
+        <div id="nexus2" class="turret"></div>
+        <div id="platform" class="turret"></div>
+
+        <div id="bonus1" class="bonus"></div>
+        <div id="bonus2" class="bonus"></div>
+        <div id="card1" class="bonus"></div>
+        <div id="card2" class="bonus"></div>
+
+        <div id="bar">
+            <div id="timer-logo"></div>
+            <div id="timer">00:00</div>
+            <div id="hp-logo"></div>
+            <div id="hp"></div>
+            <div id="gold-logo"></div>
+            <div id="gold"></div>
+            <div id="damage-logo"></div>
+            <div id="damage"></div>
+            <div id="speed-logo"></div>
+            <div id="speed"></div>
+        </div>
+
+        <div id="middle-of-the-screen">
+            <div id="defeat"></div>
+            <div id="victory"></div>
+        </div>
+
+        <div id="ESC" onclick="pauseGame()">Pause</div>
+        <div id="TAB" onclick="activateInventory()">Inventory</div>
+        <div id="inventory1" class="inventory" onclick="activateItem1()"></div>
+        <div id="inventory2" class="inventory" onclick="activateItem2()"></div>
+        <div id="inventory3" class="inventory" onclick="activateItem3()"></div>
+        <div id="inventory4" class="inventory" onclick="activateItem4()"></div>
+        <div id="inventory5" class="inventory" onclick="activateItem5()"></div>
+        <div id="inventory6" class="inventory" onclick="activateItem6()"></div>
+        <div id="inventory7" class="inventory" onclick="activateItem7()"></div>
+        <div id="inventory8" class="inventory" onclick="activateItem8()"></div>
+        <div id="inventory9" class="inventory" onclick="activateItem9()"></div>
+
+        <div id="shop" class="modal hide fade in" tabindex="-1">
+            <div class="modal-header">
+              <div id="shopTitle">Item Shop</div>
+            </div>
+            <table class="table table-hover table-bordered datos">
+                <div id="closeShop" onclick="showItemShop()"></div>
+                <div id="item1" class="items"></div>
+                <div id="item2" class="items"></div>
+                <div id="item3" class="items"></div>
+                <div id="item4" class="items"></div>
+                <div id="item5" class="items"></div>
+                <div id="item6" class="items"></div>
+                <div id="item7" class="items"></div>
+                <div id="item8" class="items"></div>
+                <div id="item9" class="items"></div>
+
+                <div id="itemText1" class="itemText">+25HP</div>
+                <div id="itemText2" class="itemText">Teleport to spawn</div>
+                <div id="itemText3" class="itemText">2x speed</div>
+                <div id="itemText4" class="itemText">2x damage</div>
+                <div id="itemText5" class="itemText">+100HP</div>
+                <div id="itemText6" class="itemText">3x damage</div>
+                <div id="itemText7" class="itemText">Stopwatch (Everything stops)</div>
+                <div id="itemText8" class="itemText">Ghost (No enemy damage)</div>
+                <div id="itemText9" class="itemText">Kill all enemies</div>
+
+                <div id="buyItem1" class="buyItem" onclick="buyItem1()">25Gold</div>
+                <div id="buyItem2" class="buyItem" onclick="buyItem2()">25Gold</div>
+                <div id="buyItem3" class="buyItem" onclick="buyItem3()">50Gold</div>
+                <div id="buyItem4" class="buyItem" onclick="buyItem4()">75Gold</div>
+                <div id="buyItem5" class="buyItem" onclick="buyItem5()">100Gold</div>
+                <div id="buyItem6" class="buyItem" onclick="buyItem6()">125Gold</div>
+                <div id="buyItem7" class="buyItem" onclick="buyItem7()">150Gold</div>
+                <div id="buyItem8" class="buyItem" onclick="buyItem8()">175Gold</div>
+                <div id="buyItem9" class="buyItem" onclick="buyItem9()">200Gold</div>
+            </table>
+        </div>
+
+        <div id="settings" class="modal hide fade in" tabindex="-1">
+            <div class="modal-header">
+              <div id="settingsTitle">Settings</div>
+            </div>
+            <table class="table table-hover table-bordered datos">
+                <div id="closeSettings" onclick="showSettings()"></div>
+                <div id="settingsImg1" class="settingsImg" onclick="pauseGame()"></div>
+                <div id="settingsImg2" class="settingsImg" onclick="toggleMute()"></div>
+                <div id="settingsImg3" class="settingsImg" onclick="fullscreen()"></div>
+                <div id="settingsImg4" class="settingsImg" onclick="showArrows()"></div>
+                <div id="settingsImg5" class="settingsImg" onclick="reload()"></div>
+                <div id="settingsImg6" class="settingsImg2" onclick="hideMinimap()"></div>
+                <a id="settingsImg7" class="settingsImg2" href="README.pdf" target="_blank"></a>
+
+                <div id="setText1" class="setText" onclick="pauseGame()">Pause Game</div>
+                <div id="setText2" class="setText" onclick="toggleMute()">Volume On</div>
+                <div id="setText3" class="setText" onclick="fullscreen()">Fullscreen</div>
+                <div id="setText4" class="setText" onclick="showArrows()">Touch Control</div>
+                <div id="setText5" class="setText" onclick="reload()">Restart</div>
+                <div id="setText6" class="setText2" onclick="hideMinimap()">Hide Minimap</div>
+                <a id="setText7" class="setText2" href="README.pdf" target="_blank">README</a>
+            </table>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+        <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+        <audio id="soundBackground" controls preload="auto">
+            <source src="sounds\background.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundAttack" controls preload="auto">
+            <source src="sounds\attack.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundNexusUnderAttack" controls preload="auto">
+            <source src="sounds\your-nexus-is-under-attack.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundFirstBlood" controls preload="auto">
+            <source src="sounds\first-blood.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundMinion" controls preload="auto">
+            <source src="sounds\minions-have-spawned.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundActivate" controls preload="auto">
+            <source src="sounds\activate.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundWelcome" controls preload="auto">
+            <source src="sounds\welcome-to-summoners-rift.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundTurretDestroyed" controls preload="auto">
+            <source src="sounds\turret-destroyed.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundTurretDestroyedEffect" controls preload="auto">
+            <source src="sounds\turret-destroyed-effect.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundVictory" controls preload="auto">
+            <source src="sounds\victory.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundDefeat" controls preload="auto">
+            <source src="sounds\defeat.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundNotEnoughGold" controls preload="auto">
+            <source src="sounds\not-enough-gold.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundEnemySlain" controls preload="auto">
+            <source src="sounds\you-have-slain-an-enemy.mp3" type="audio/mpeg">
+        </audio>
+    </body>
+    <script src="script.js"></script>
+</html>
